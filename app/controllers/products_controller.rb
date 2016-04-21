@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(allowed_params)
     if @product.save
-      flash[:notice] = "Successfully created product."
+      flash[:notice] = "Successfully created product #{view_context.link_to('product', @product)}."
       redirect_to @product
     else
       render :new
